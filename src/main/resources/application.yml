@@ -1,0 +1,50 @@
+server:
+  port: 8082
+spring:
+  profiles:
+    active: dev
+welcome-msg: Hi I AM THERE.....DEFAULT!!!
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Include all endpoints
+        exclude: "env,beans"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dept-dev
+    password: Bh@rat!19
+  application:
+    name: Spring-boot-tutorial
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+welcome-msg: Hi I AM THERE.....DEV!!!
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dept-qa
+    password: Bh@rat!19
+  application:
+    name: Spring-boot-tutorial
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+welcome-msg: Hi I AM THERE.....QA!!!

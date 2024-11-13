@@ -1,0 +1,4 @@
+FROM openjdk:8
+EXPOSE 8082
+ADD target/Spring-boot-tutorial-1.0.0.jar Spring-boot-tutorial-1.0.0.jar
+ENTRYPOINT ["java","-jar","/Spring-boot-tutorial-1.0.0.jar"]
